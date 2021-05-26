@@ -12,7 +12,7 @@ class DatabaseService {
 
   // Disease Collection Reference
   final CollectionReference diseaseCollection =
-      Firestore.instance.collection('diseases');
+      Firestore.instance.collection('disease');
 
   Future updateUserDate(String name, String email) async {
     return await userCollection.document(uid).setData({

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:test_app/colors.dart';
 import 'package:test_app/disease.dart';
@@ -18,52 +19,65 @@ class _DiseaseTileState extends State<DiseaseTile> {
     return Padding(
       padding: EdgeInsets.only(top: 8.0),
       child: Card(
-        color: Colors.white,
+        elevation: 0.0,
+        color: kPrimary,
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
-          leading: CircleAvatar(
-            backgroundColor: kTextColor,
-            radius: 25.0,
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                PageTransition(
-                    child: PageView.builder(itemBuilder: (context, index) {
-                      return DiseaseDetail(
-                        disease: widget.disease,
-                      );
-                    }),
-                    type: PageTransitionType.rightToLeftWithFade,
-                    duration: Duration(milliseconds: 200)));
-          },
-          title: Text(
-            widget.disease.name,
-            style: TextStyle(fontFamily: 'ss', fontSize: size.width * 0.04),
-          ),
-          subtitle: Text("${widget.disease.description}",
-              style: TextStyle(fontFamily: 'ss', fontSize: size.width * 0.038)),
-          // trailing: RatingBar.builder(
-          //   itemSize: size.width * 0.04,
-          //   initialRating: widget.school.rating,
-          //   minRating: 1,
-          //   direction: Axis.horizontal,
-          //   allowHalfRating: true,
-          //   itemCount: 5,
-          //   itemBuilder: (context, _) => Icon(
-          //     Icons.star,
-          //     color: Colors.blueAccent,
-          //   ),
-          //   onRatingUpdate: (rating) {
-          //     print(rating);
-          //   },
-          // ),
-          // trailing: IconButton(
-          //   icon: isBookmarked ? bookmarkIconComp : bookmarkIconInit,
-          //   onPressed:
-          //       isBookmarked ? removeBookmarkToFirebase : addBookmarkToFirebase,
-          // ),
-        ),
+            leading: CircleAvatar(
+              backgroundColor: kTextColor,
+              radius: 25.0,
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  PageTransition(
+                      child: PageView.builder(itemBuilder: (context, index) {
+                        return DiseaseDetail(
+                          disease: widget.disease,
+                        );
+                      }),
+                      type: PageTransitionType.rightToLeftWithFade,
+                      duration: Duration(milliseconds: 200)));
+            },
+            title: Text(
+              widget.disease.name,
+              style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600, fontSize: size.width * 0.05),
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Text(
+                        "${widget.disease.symptoms[0]}",
+                        style: GoogleFonts.poppins(
+                            color: kTextColor, fontSize: size.width * 0.04),
+                      ),
+                      SizedBox(
+                        width: size.width * 0.06,
+                      ),
+                      Text("${widget.disease.symptoms[1]}",
+                          style: GoogleFonts.poppins(
+                              color: kTextColor, fontSize: size.width * 0.04)),
+                      SizedBox(
+                        width: size.width * 0.06,
+                      ),
+                      Text("${widget.disease.symptoms[2]}",
+                          style: GoogleFonts.poppins(
+                              color: kTextColor, fontSize: size.width * 0.04)),
+                      SizedBox(
+                        width: size.width * 0.06,
+                      ),
+                      Text(
+                        "${widget.disease.symptoms[3]}",
+                        style: GoogleFonts.poppins(
+                            color: kTextColor, fontSize: size.width * 0.04),
+                      ),
+                    ],
+                  )),
+            )),
       ),
     );
   }
