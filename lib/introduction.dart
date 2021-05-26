@@ -10,9 +10,9 @@ class Introduction extends StatelessWidget {
     return [
       PageViewModel(
           image: Image.asset('assets/is1.png'),
-          title: "Find the best Schools",
+          title: "Find all about your Health.",
           body:
-              "Enable Yourself to find the best possible school in all over Your Locality with your smartphone using this new app.",
+              "Enable Yourself to find all the necessary information about specific diseases and symptoms.",
           decoration: PageDecoration(
             pageColor: Color(0xfff3f9ff),
             titleTextStyle: GoogleFonts.poppins(
@@ -25,7 +25,7 @@ class Introduction extends StatelessWidget {
           image: Image.asset('assets/is2.png'),
           title: "Acquire all the information needed.",
           body:
-              "Find all the relevent information about each school listed, along with details, timings and much more.",
+              "Find all the relevent information about each disease listed, along with details, symptoms and much more.",
           decoration: PageDecoration(
             pageColor: Color(0xfff3f9ff),
             titleTextStyle: GoogleFonts.poppins(
@@ -36,9 +36,9 @@ class Introduction extends StatelessWidget {
           )),
       PageViewModel(
           image: Image.asset('assets/is3.png'),
-          title: "Locate Schools Easily",
+          title: "Diagnose Your Diseases",
           body:
-              "No more wasting asking for the location of the school and get the exact location & address for each school listed.",
+              "Now, using Healthify app you can diagnose your current disease with symptoms, it will provide a list of possible diseases.",
           decoration: PageDecoration(
             pageColor: Color(0xfff3f9ff),
             titleTextStyle: TextStyle(

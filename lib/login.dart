@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:test_app/colors.dart';
+import 'package:test_app/register.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -33,7 +35,7 @@ class _LoginState extends State<Login> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: size.height * 0.03,
+                    height: size.height * 0.1,
                   ),
                   Center(
                     child: Text(
@@ -59,51 +61,51 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: size.height * 0.05,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: size.width * 0.4,
-                        height: size.height * 0.1,
-                        decoration: BoxDecoration(
-                          color: kCardbg,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: IconButton(
-                            icon: Icon(
-                              FontAwesomeIcons.facebookF,
-                              color: kIconColor,
-                            ),
-                            onPressed: null),
-                      ),
-                      Container(
-                        width: size.width * 0.4,
-                        height: size.height * 0.1,
-                        decoration: BoxDecoration(
-                          color: kCardbg,
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: IconButton(
-                            icon: Icon(
-                              FontAwesomeIcons.google,
-                              color: kIconColor,
-                            ),
-                            onPressed: null),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: size.height * 0.05,
-                  ),
-                  Text(
-                    "or Login With Email",
-                    style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                            letterSpacing: .6,
-                            color: kSubtitleText,
-                            fontWeight: FontWeight.w500)),
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  //   crossAxisAlignment: CrossAxisAlignment.center,
+                  //   children: [
+                  //     Container(
+                  //       width: size.width * 0.4,
+                  //       height: size.height * 0.1,
+                  //       decoration: BoxDecoration(
+                  //         color: kCardbg,
+                  //         borderRadius: BorderRadius.circular(15.0),
+                  //       ),
+                  //       child: IconButton(
+                  //           icon: Icon(
+                  //             FontAwesomeIcons.facebookF,
+                  //             color: kIconColor,
+                  //           ),
+                  //           onPressed: null),
+                  //     ),
+                  //     Container(
+                  //       width: size.width * 0.4,
+                  //       height: size.height * 0.1,
+                  //       decoration: BoxDecoration(
+                  //         color: kCardbg,
+                  //         borderRadius: BorderRadius.circular(15.0),
+                  //       ),
+                  //       child: IconButton(
+                  //           icon: Icon(
+                  //             FontAwesomeIcons.google,
+                  //             color: kIconColor,
+                  //           ),
+                  //           onPressed: null),
+                  //     )
+                  //   ],
+                  // ),
+                  // SizedBox(
+                  //   height: size.height * 0.05,
+                  // ),
+                  // Text(
+                  //   "or Login With Email",
+                  //   style: GoogleFonts.poppins(
+                  //       textStyle: TextStyle(
+                  //           letterSpacing: .6,
+                  //           color: kSubtitleText,
+                  //           fontWeight: FontWeight.w500)),
+                  // ),
                   SizedBox(
                     height: size.height * 0.05,
                   ),
@@ -207,20 +209,30 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     SizedBox(height: size.height * 0.05),
-                    RichText(
-                        text: TextSpan(
-                            text: "Don't have an account?",
-                            style: GoogleFonts.poppins(
-                                color: kSubtitleText,
-                                fontSize: size.width * 0.04),
-                            children: [
-                          TextSpan(
-                              text: "   Register",
+                    GestureDetector(
+                      child: RichText(
+                          text: TextSpan(
+                              text: "Don't have an account?",
                               style: GoogleFonts.poppins(
-                                color: kTextColor,
-                                fontWeight: FontWeight.w600,
-                              ))
-                        ]))
+                                  color: kSubtitleText,
+                                  fontSize: size.width * 0.04),
+                              children: [
+                            TextSpan(
+                                text: "   Register",
+                                style: GoogleFonts.poppins(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.w600,
+                                ))
+                          ])),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                            context,
+                            PageTransition(
+                                type: PageTransitionType.rightToLeftWithFade,
+                                duration: Duration(milliseconds: 500),
+                                child: Register()));
+                      },
+                    )
                   ],
                 ),
               ),
