@@ -4,6 +4,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:test_app/colors.dart';
 import 'package:test_app/login.dart';
+import 'package:test_app/wrapper.dart';
 
 class Introduction extends StatelessWidget {
   List<PageViewModel> getPages() {
@@ -63,9 +64,9 @@ class Introduction extends StatelessWidget {
             Navigator.pushReplacement(
                 context,
                 PageTransition(
-                    type: PageTransitionType.rightToLeft,
-                    duration: Duration(milliseconds: 500),
-                    child: Login()));
+                    type: PageTransitionType.rightToLeftWithFade,
+                    duration: Duration(milliseconds: 400),
+                    child: Wrapper()));
           },
           pages: getPages(),
           showSkipButton: true,

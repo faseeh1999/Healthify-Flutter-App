@@ -6,8 +6,6 @@ import 'package:page_transition/page_transition.dart';
 import 'package:test_app/auth.dart';
 import 'package:test_app/colors.dart';
 import 'package:test_app/loader.dart';
-import 'package:test_app/login.dart';
-import 'package:test_app/wrapper.dart';
 
 class Register extends StatefulWidget {
   final Function toggleForm;
@@ -24,9 +22,9 @@ class _RegisterState extends State<Register> {
   final _pass = TextEditingController();
   //Validators
   final emailValidator =
-      ValidationBuilder().email().maxLength(20).required().build();
+      ValidationBuilder().email().maxLength(50).required().build();
   final passValidator =
-      ValidationBuilder().minLength(5).maxLength(20).required().build();
+      ValidationBuilder().minLength(6).maxLength(20).required().build();
 
   final nameValidator =
       ValidationBuilder().minLength(3).maxLength(20).required().build();
@@ -246,13 +244,7 @@ class _RegisterState extends State<Register> {
                                       ))
                                 ])),
                             onTap: () {
-                              Navigator.pushReplacement(
-                                  context,
-                                  PageTransition(
-                                      type: PageTransitionType
-                                          .rightToLeftWithFade,
-                                      duration: Duration(milliseconds: 500),
-                                      child: Wrapper()));
+                              widget.toggleForm();
                             },
                           )
                         ],
