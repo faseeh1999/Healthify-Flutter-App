@@ -7,8 +7,11 @@ import 'package:test_app/auth.dart';
 import 'package:test_app/colors.dart';
 import 'package:test_app/loader.dart';
 import 'package:test_app/login.dart';
+import 'package:test_app/wrapper.dart';
 
 class Register extends StatefulWidget {
+  final Function toggleForm;
+  Register({this.toggleForm});
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -249,7 +252,7 @@ class _RegisterState extends State<Register> {
                                       type: PageTransitionType
                                           .rightToLeftWithFade,
                                       duration: Duration(milliseconds: 500),
-                                      child: Login()));
+                                      child: Wrapper()));
                             },
                           )
                         ],

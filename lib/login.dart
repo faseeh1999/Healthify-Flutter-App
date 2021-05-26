@@ -7,6 +7,8 @@ import 'package:test_app/colors.dart';
 import 'package:test_app/register.dart';
 
 class Login extends StatefulWidget {
+  final Function toggleForm;
+  Login({this.toggleForm});
   @override
   _LoginState createState() => _LoginState();
 }
