@@ -25,6 +25,7 @@ class DatabaseService {
   List<Disease> _diseaseListfromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       return Disease(
+          image: doc.data['image'] ?? "",
           name: doc.data['name'] ?? "",
           description: doc.data['description'] ?? "",
           symptoms: doc.data['symptoms'] ?? []);

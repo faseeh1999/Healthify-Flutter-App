@@ -24,6 +24,7 @@ class _DiseaseTileState extends State<DiseaseTile> {
         margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
             leading: CircleAvatar(
+              backgroundImage: NetworkImage("${widget.disease.image}"),
               backgroundColor: kTextColor,
               radius: 25.0,
             ),
@@ -50,30 +51,49 @@ class _DiseaseTileState extends State<DiseaseTile> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      Text(
-                        "${widget.disease.symptoms[0]}",
-                        style: GoogleFonts.poppins(
-                            color: kTextColor, fontSize: size.width * 0.04),
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: kTextColor),
+                            borderRadius: BorderRadius.circular(25)),
+                        child: Padding(
+                          padding: EdgeInsets.all(size.width * 0.007),
+                          child: Text(
+                            "${widget.disease.symptoms[0]}",
+                            style: GoogleFonts.poppins(
+                                color: kTextColor, fontSize: size.width * 0.04),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         width: size.width * 0.06,
                       ),
-                      Text("${widget.disease.symptoms[1]}",
+                      Padding(
+                        padding: EdgeInsets.all(size.width * 0.007),
+                        child: Text("${widget.disease.symptoms[1]}",
+                            style: GoogleFonts.poppins(
+                                color: kTextColor,
+                                fontSize: size.width * 0.04)),
+                      ),
+                      SizedBox(
+                        width: size.width * 0.06,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(size.width * 0.007),
+                        child: Text("${widget.disease.symptoms[2]}",
+                            style: GoogleFonts.poppins(
+                                color: kTextColor,
+                                fontSize: size.width * 0.04)),
+                      ),
+                      SizedBox(
+                        width: size.width * 0.06,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(size.width * 0.007),
+                        child: Text(
+                          "${widget.disease.symptoms[3]}",
                           style: GoogleFonts.poppins(
-                              color: kTextColor, fontSize: size.width * 0.04)),
-                      SizedBox(
-                        width: size.width * 0.06,
-                      ),
-                      Text("${widget.disease.symptoms[2]}",
-                          style: GoogleFonts.poppins(
-                              color: kTextColor, fontSize: size.width * 0.04)),
-                      SizedBox(
-                        width: size.width * 0.06,
-                      ),
-                      Text(
-                        "${widget.disease.symptoms[3]}",
-                        style: GoogleFonts.poppins(
-                            color: kTextColor, fontSize: size.width * 0.04),
+                              color: kTextColor, fontSize: size.width * 0.04),
+                        ),
                       ),
                     ],
                   )),
