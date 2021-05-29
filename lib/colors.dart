@@ -8,3 +8,4 @@ Color kButtonTextColor = Color(0xffFBFCFC);
 Color kSubtitleText = Color(0xff717E89);
 Color kCardbg = Color(0xffF2F6FB);
 Color kIconColor = Color(0xffAEBED9);
+Color kSelectedColor = Colors.grey[400];

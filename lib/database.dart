@@ -3,7 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseService {
   final String uid;
-  DatabaseService({this.uid});
+  final String s1, s2, s3, s4;
+  DatabaseService({this.uid, this.s1, this.s2, this.s3, this.s4});
 
   // User Collection Reference
 
@@ -35,5 +36,16 @@ class DatabaseService {
   // School Stream
   Stream<List<Disease>> get diseases {
     return diseaseCollection.snapshots().map(_diseaseListfromSnapshot);
+  }
+
+  // School Stream
+  Stream<List<Disease>> get diseasesResult {
+    return diseaseCollection
+        .where('symptoms', arrayContains: s1)
+        .where('symptoms', arrayContains: s2)
+        .where('symptoms', arrayContains: s3)
+        .where('symptoms', arrayContains: s4)
+        .snapshots()
+        .map(_diseaseListfromSnapshot);
   }
 }

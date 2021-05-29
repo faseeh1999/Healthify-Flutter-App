@@ -28,18 +28,18 @@ class _DiseaseTileState extends State<DiseaseTile> {
               backgroundColor: kTextColor,
               radius: 25.0,
             ),
-            onTap: () {
-              Navigator.push(
-                  context,
-                  PageTransition(
-                      child: PageView.builder(itemBuilder: (context, index) {
-                        return DiseaseDetail(
-                          disease: widget.disease,
-                        );
-                      }),
-                      type: PageTransitionType.rightToLeftWithFade,
-                      duration: Duration(milliseconds: 200)));
-            },
+            // onTap: () {
+            //   Navigator.push(
+            //       context,
+            //       PageTransition(
+            //           child: PageView.builder(itemBuilder: (context, index) {
+            //             return DiseaseDetail(
+            //               disease: widget.disease,
+            //             );
+            //           }),
+            //           type: PageTransitionType.rightToLeftWithFade,
+            //           duration: Duration(milliseconds: 200)));
+            // },
             title: Text(
               widget.disease.name,
               style: GoogleFonts.poppins(
